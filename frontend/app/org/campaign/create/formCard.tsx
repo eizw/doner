@@ -41,7 +41,7 @@ export default function FormCard() {
 
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="description">Description</Label>
-              <Textarea for="description" placeholder="Additional information..."/>
+              <Textarea id="description" placeholder="Additional information..."/>
             </div>
           </div>
         </form>

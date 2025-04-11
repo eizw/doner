@@ -8,8 +8,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-
-import GoalBar from './goalBar';
+import { Progress } from "@/components/ui/progress"
 
 import { useRouter } from 'next/navigation';
 
@@ -21,10 +20,10 @@ export default function CampaignCard({
     const router = useRouter();
 
     return (
-        // <Card onClick={() => router.push('/campaign')}>
-        <Card className="gap-3">
+        <Card onClick={() => router.push('/org/campaign/' + campaign.id)} className="gap-3">
+        {/* <Card className="gap-3"> */}
             <CardHeader>
-                <div className="w-full h-32 border-1 border-black rounded-lg flex items-center justify-center">
+                <div className="w-full min-h-32 border-1 border-black rounded-lg flex items-center justify-center">
                     Image
                 </div>
             </CardHeader>
@@ -33,7 +32,10 @@ export default function CampaignCard({
                 <CardDescription className="mb-3 h-10 overflow-hidden">
                     { campaign.description }
                 </CardDescription>
-                <GoalBar value={campaign.raised} max={campaign.goal}></GoalBar>
+                <Progress 
+                    className="h-4"
+                    value={Math.min(campaign.raised / campaign.goal * 100, 100)}
+                />
             </CardContent>
             <CardFooter>
                 <div className="flex w-full">
