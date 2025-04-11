@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import GoalBar from "@/app/org/goalBar";
+import { Progress } from "@/components/ui/progress";
 import RecentDonors from "./recentDonors";
 import Updates from "./updatesCampaign";
 import Link from "next/link";
@@ -81,7 +81,10 @@ export default function CampaignDetails({ params }: CampaignDetailsProps) {
             <CardDescription className="mb-3 h-10 overflow-hidden">
               {campaign.description}
             </CardDescription>
-            <GoalBar value={campaign.raised} max={campaign.goal} />
+            <Progress 
+                className="h-4"
+                value={Math.min(campaign.raised / campaign.goal * 100, 100)}
+            />
           </CardContent>
           <CardFooter>
             <div className="flex w-full">
