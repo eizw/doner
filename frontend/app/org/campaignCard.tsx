@@ -20,10 +20,10 @@ export default function CampaignCard({
     const router = useRouter();
 
     return (
-        // <Card onClick={() => router.push('/campaign')}>
-        <Card className="gap-3">
+        <Card onClick={() => router.push('/org/campaign/' + campaign.id)} className="gap-3">
+        {/* <Card className="gap-3"> */}
             <CardHeader>
-                <div className="w-full h-32 border-1 border-black rounded-lg flex items-center justify-center">
+                <div className="w-full min-h-32 border-1 border-black rounded-lg flex items-center justify-center">
                     Image
                 </div>
             </CardHeader>
