@@ -8,7 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import GoalBar from "../org/goalBar";
+import { Progress } from "@/components/ui/progress"
+
 import { useRouter } from "next/navigation";
 
 export default function CampaignCard({ campaign }: { campaign: any }) {
@@ -33,7 +34,10 @@ export default function CampaignCard({ campaign }: { campaign: any }) {
         <CardDescription className="mb-3 h-10 overflow-hidden">
           {campaign.description}
         </CardDescription>
-        <GoalBar value={campaign.raised} max={campaign.goal} />
+        <Progress 
+            className="h-4"
+            value={Math.min(campaign.raised / campaign.goal * 100, 100)}
+        />
       </CardContent>
       <CardFooter>
         <div className="flex w-full">
