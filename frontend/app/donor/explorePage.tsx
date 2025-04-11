@@ -11,7 +11,6 @@ let campaignList = [
     description: loremIpsum,
     goal: 4000,
     raised: 2000,
-    balance: 564.0,
   },
   {
     id: "2",
@@ -19,7 +18,6 @@ let campaignList = [
     description: loremIpsum,
     goal: 4000,
     raised: 200,
-    balance: 564.0,
   },
   {
     id: "3",
@@ -27,16 +25,15 @@ let campaignList = [
     description: loremIpsum,
     goal: 4000,
     raised: 2000,
-    balance: 564.0,
   },
 ];
 
-export default function Dashboard() {
+export default function ExplorePage() {
   return (
     <div className="flex flex-col p-6 gap-3 h-screen max-h-screen">
       <div className="flex flex-row mx-3 ">
-        <h1 className="font-semibold mr-auto flex items-center">
-          Your Campaigns
+        <h1 className="font-semibold mr-auto flex items-center text-2xl">
+          Explore Campaigns
         </h1>
         <Button>
           Sort
@@ -57,14 +54,10 @@ export default function Dashboard() {
         </Button>
       </div>
 
-      <div className="flex flex-col gap-6 h-full scrollbar ">
+      <div className="flex flex-col gap-6 h-full scrollbar mt-2">
         {campaignList.map((campaign, index) => {
           return <CampaignCard key={index} campaign={campaign}></CampaignCard>;
         })}
-      </div>
-
-      <div className="flex">
-        <Button className="w-full">+ New Campaign</Button>
       </div>
     </div>
   );
