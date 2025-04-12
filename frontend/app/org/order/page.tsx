@@ -38,7 +38,7 @@ const orderList = [
 
 export default function ExplorePage() {
   return (
-    <div className="flex flex-col p-6 gap-3 h-screen max-h-screen">
+    <div className="page-container">
       <div className="flex flex-row mx-3 ">
         <h1 className="font-semibold mr-auto flex items-center text-2xl">
           Explore Campaigns
@@ -62,7 +62,7 @@ export default function ExplorePage() {
         </Button>
       </div>
 
-      <div className="flex flex-col gap-6 h-full mt-2">
+      <div className="flex flex-col gap-6 h-full mt-2 scrollbar">
         {orderList.map((order, index) => {
           return <OrderCard key={index} order={order}></OrderCard>;
         })}
