@@ -38,7 +38,7 @@ let campaignList = [
 
 export default function Dashboard() {
   return (
-    <div className="flex flex-col p-6 gap-3 h-screen max-h-screen">
+    <div className="flex flex-col p-6 gap-3 max-h-[92vh] overflow-auto">
       <div className="flex flex-row mx-3 ">
         <h1 className="font-semibold mr-auto flex items-center">
           Your Campaigns

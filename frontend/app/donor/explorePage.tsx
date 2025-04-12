@@ -54,7 +54,7 @@ export default function ExplorePage() {
         </Button>
       </div>
 
-      <div className="flex flex-col gap-6 h-full scrollbar mt-2">
+      <div className="flex flex-col gap-6 h-full mt-2">
         {campaignList.map((campaign, index) => {
           return <CampaignCard key={index} campaign={campaign}></CampaignCard>;
         })}

@@ -143,9 +143,17 @@
 }
 
 .page-container {
-  @apply flex flex-col p-6 gap-3 h-screen max-h-screen justify-center;
+  @apply flex flex-col p-6 gap-3 justify-center;
 }
 
 .page-container-scroll {
   @apply flex flex-col p-6 gap-3 h-screen max-h-screen scrollbar;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }
