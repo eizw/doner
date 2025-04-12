@@ -64,7 +64,7 @@ export default function OrgLandingPage({
   }, [orgId]);
 
   return (
-    <div className="page-container-scroll">
+    <div className="page-container">
       <div className="flex flex-col gap-3 justify-center items-center">
         <Avatar>
           <AvatarImage src="https://i.pinimg.com/564x/c4/d7/9d/c4d79d31e65896bb323de884eebc9ae6.jpg" />
@@ -80,7 +80,7 @@ export default function OrgLandingPage({
         <h1 className="text-2xl font-semibold mb-4">Campaigns</h1>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 scrollbar">
         {campaigns.length > 0 ? (
           campaigns.map((campaign) => (
             <CampaignCard key={campaign.id} campaign={campaign} />

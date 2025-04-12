@@ -92,7 +92,7 @@ export default function FormCard() {
             <Link href="/org/">Cancel</Link>
         </Button>
         <Button onClick={(event) => {
-          alert(`Selected providers: ${selectedProviders}`)}
+          alert(`Campaign Created!`)}
         }>Create</Button>
       </CardFooter>
     </Card>

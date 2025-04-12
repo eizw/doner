@@ -126,7 +126,9 @@ export default function CampaignProfile({ params
                     <p className="text-lg">Total</p>
                     <p className="text-2xl font-bold">RM{Number(total).toFixed(2)}</p>
                 </div>
-                <Button className="ml-auto">
+                <Button className="ml-auto"
+                    onClick={(e) => {alert('Succesfully redeemed! New order has been created.')}}
+                >
                     Redeem
                 </Button>
             </div>
