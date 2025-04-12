@@ -91,7 +91,9 @@ export default function FormCard() {
         <Button variant="outline" asChild>
             <Link href="/org/">Cancel</Link>
         </Button>
-        <Button>Create</Button>
+        <Button onClick={(event) => {
+          alert(`Selected providers: ${selectedProviders}`)}
+        }>Create</Button>
       </CardFooter>
     </Card>
   )
