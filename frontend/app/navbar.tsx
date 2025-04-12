@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Accordion,
   AccordionContent,
@@ -22,6 +24,8 @@ import {
 } from "@/components/ui/sheet";
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react';
 
 interface MenuItem {
   title: string;
@@ -52,18 +56,31 @@ interface Navbar1Props {
 }
 
 export default function Navbar1() {
+  const pathname = usePathname();
+  const [userType, setUserType] = useState<string>();
+
+  useEffect(() => {
+    if (pathname.substring(0, 4) == '/org') {
+      setUserType("org");
+    } else {
+      setUserType("user");
+    }
+  })
+
   const logo = {
     url: "#",
     src: "https://www.shutterstock.com/image-vector/heart-hand-vector-icon-600nw-1017516478.jpg",
     alt: "logo",
     title: "Shadcnblocks.com",
   }
-  const menu = [
+  const menu = (userType=="org") ? [
     { title: "Campaigns", url: "/org/" },
     {
       title: "Orders",
       url: "/org/order/",
     },
+  ] : [
+    { title: "Dashboard", url: "/donor/" },
   ]
 
   return (
