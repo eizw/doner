@@ -1,30 +1,38 @@
-import CampaignCard from "./campaignCard";
+import OrderCard from "./orderCard";
 import { Button } from "@/components/ui/button";
 
-const loremIpsum =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
 
-let campaignList = [
+const orderList = [
   {
     id: "1",
-    name: "Masjid Al-Ikhsan",
-    description: loremIpsum,
-    goal: 4000,
-    raised: 2000,
+    name: "ORDER-3910480139132",
+    amount: 65.00,
+    provider: "MPH Bookstore",
+    items: [
+        {
+            name: "Stationaries",
+            price: 3.00,
+            count: 5
+        },
+        {
+            name: "Biology Book",
+            price: 10.00,
+            count: 5
+        },
+    ]
   },
   {
     id: "2",
-    name: "Flood Relief",
-    description: loremIpsum,
-    goal: 4000,
-    raised: 200,
-  },
-  {
-    id: "3",
-    name: "Masjid Al-Ikhsan",
-    description: loremIpsum,
-    goal: 4000,
-    raised: 2000,
+    name: "ORDER-22918491283442",
+    amount: 50.00,
+    provider: "Faris Maju",
+    items: [
+        {
+            name: "Mi Goreng",
+            price: 5.00,
+            count: 10
+        },
+    ]
   },
 ];
 
@@ -55,8 +63,8 @@ export default function ExplorePage() {
       </div>
 
       <div className="flex flex-col gap-6 h-full mt-2">
-        {campaignList.map((campaign, index) => {
-          return <CampaignCard key={index} campaign={campaign}></CampaignCard>;
+        {orderList.map((order, index) => {
+          return <OrderCard key={index} order={order}></OrderCard>;
         })}
       </div>
     </div>

@@ -61,15 +61,15 @@ export default function CampaignDetails({ params }: CampaignDetailsProps) {
   return (
     <>
       {/* Back Button */}
-      <Button
+      {/* <Button
         onClick={goBack}
         className="absolute top-6 left-6 z-10 text-white py-2 px-4 rounded-md shadow-md"
       >
         Back
-      </Button>
+      </Button> */}
 
       {/* Content wrapper with padding to prevent overlap */}
-      <div className="pt-16">
+      <div className="scrollbar">
         <Card className="gap-3 cursor-pointer transition-all shadow-none border-none outline-none ring-0">
           <CardHeader>
             <div className="w-full h-32 border-1 border-black rounded-lg flex items-center justify-center">

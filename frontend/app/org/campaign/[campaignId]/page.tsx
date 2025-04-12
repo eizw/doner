@@ -1,5 +1,10 @@
+"use client"
+
 import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
 import ProviderMenu from "./providerMenu";
+
+import React, { useState } from "react";
 
 const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
 
@@ -54,13 +59,27 @@ export default function CampaignProfile({ params
 }: {
     params: any
 }) {
+    params = React.use(params);
     const campaign: any = campaignList.find(({ id }) => 
-        id == params.campaignId
+        id == params.campaignId,
     );
-    console.log(campaign)
+
+    const [order, setOrder] = useState<number[]>(new Array(providerList.length).fill(0));
+    const [total, setTotal] = useState(0);
+
+    const handleChange = (key: number, total: number) => {
+        const nextOrder = order.map((value, index) => {
+            return (index == key) ? total : value;
+        })
+        let sum = 0;
+        nextOrder.map((total) => sum += total);
+        setOrder(nextOrder);
+        setTotal(sum);
+
+    }
     
     return (
-        <div className="page-container-scroll">
+        <div className="page-container">
             <div className="w-full min-h-48 border-1 border-black flex items-center justify-center">
                 Image
             </div>
@@ -93,12 +112,23 @@ export default function CampaignProfile({ params
                                     <ProviderMenu 
                                         key={index}
                                         provider={provider}
+                                        providerKey={index}
+                                        onChange={handleChange}
                                     />
                                 );
                             })
                         }
                     </div>
                 </div>
+            </div>
+            <div className="flex justify-center items-end">
+                <div className="pt-3 flex flex-col">
+                    <p className="text-lg">Total</p>
+                    <p className="text-2xl font-bold">RM{Number(total).toFixed(2)}</p>
+                </div>
+                <Button className="ml-auto">
+                    Redeem
+                </Button>
             </div>
         </div>
     )
