@@ -1,5 +1,5 @@
 # Doner
-Donation app that automatically distributes funds from charity campaigns to providers using transparent linear fund transfer.
+Donation app that automatically distributes funds from charity campaigns to providers using transparent linear fund transfer and blockchain to record transactions for transparency.
 
 Submission for UMHackathon 2025\
 Group: Autowin\
